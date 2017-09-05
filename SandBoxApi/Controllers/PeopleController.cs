@@ -6,8 +6,10 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Remoting.Messaging;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Newtonsoft.Json;
 using SandBoxApi.Context;
 using SandBoxApi.Models;
 
@@ -17,10 +19,15 @@ namespace SandBoxApi.Controllers
     {
         private SandBoxApiContext db = new SandBoxApiContext();
 
+        
         // GET: api/People
-        public IQueryable<Person> GetPeople()
+        public HttpResponseMessage GetPeople()
         {
-            return db.People;
+            var reps = new HttpResponseMessage();
+            var apa = new List<Person>(){new Person(){FirstName = "Nils", LastName = "Gunnarsson", Id = 1,LocationId = 1, RfId = "45:CD:12"}, new Person() { FirstName = "Nils", LastName = "Gunnarsson", Id = 1, LocationId = 1, RfId = "45:CD:12" }, new Person() { FirstName = "Nils", LastName = "Gunnarsson", Id = 1, LocationId = 1, RfId = "45:CD:12"}};
+
+            reps.Content = new StringContent(JsonConvert.SerializeObject(apa), System.Text.Encoding.UTF8, "application/json");
+            return reps;
         }
 
         // GET: api/People/5
