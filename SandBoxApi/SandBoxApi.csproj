@@ -124,8 +124,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http">
-    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -239,9 +237,18 @@
     <Compile Include="Migrations\201709041214283_Initial.Designer.cs">
       <DependentUpon>201709041214283_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709051011512_AddedLocations.cs" />
+    <Compile Include="Migrations\201709051011512_AddedLocations.Designer.cs">
+      <DependentUpon>201709051011512_AddedLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709051013251_ChangedPerson.cs" />
+    <Compile Include="Migrations\201709051013251_ChangedPerson.Designer.cs">
+      <DependentUpon>201709051013251_ChangedPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\SandBoxApiContext.cs" />
+    <Compile Include="Context\SandBoxApiContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +282,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\SandBoxApiStairs - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SandBoxWaff - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -282,7 +290,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -316,6 +326,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709041214283_Initial.resx">
       <DependentUpon>201709041214283_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051011512_AddedLocations.resx">
+      <DependentUpon>201709051011512_AddedLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051013251_ChangedPerson.resx">
+      <DependentUpon>201709051013251_ChangedPerson.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

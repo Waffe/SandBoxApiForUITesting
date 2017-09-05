@@ -1,3 +1,5 @@
+using SandBoxApi.Context;
+
 namespace SandBoxApi.Migrations
 {
     using System;
@@ -5,14 +7,14 @@ namespace SandBoxApi.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SandBoxApi.Models.SandBoxApiContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SandBoxApiContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SandBoxApi.Models.SandBoxApiContext context)
+        protected override void Seed(SandBoxApiContext context)
         {
             //  This method will be called after migrating to the latest version.
 

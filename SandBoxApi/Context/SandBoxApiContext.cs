@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
+using SandBoxApi.Models;
 
-namespace SandBoxApi.Models
+namespace SandBoxApi.Context
 {
     public class SandBoxApiContext : DbContext
     {
@@ -19,6 +16,7 @@ namespace SandBoxApi.Models
         {
         }
 
-        public System.Data.Entity.DbSet<SandBoxApi.Models.Person> People { get; set; }
+        public DbSet<Person> People { get; set; }
+        public DbSet<Location> Locations { get; set; }
     }
 }
